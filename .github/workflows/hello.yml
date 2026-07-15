@@ -1,8 +1,12 @@
-name: Hello CI
+name: Run My Script
 on: push
 jobs:
-  say-hello:
+  run-script:
     runs-on: ubuntu-latest
     steps:
-      - name: Say hello
-        run: echo "Привет из GitHub Actions!"
+      - name: Get the code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+      - name: Run hello.py
+        run: python hello.py
